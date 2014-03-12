@@ -135,7 +135,6 @@
                     },
 
                     initGame : function(initialSeconds){
-                        gameServiceInstance._.colorCounts = {};
                         gameServiceInstance.OutcomeText = '';
                         gameServiceInstance.LastGameWon = false;
                         gameServiceInstance.GameStarted = true;
@@ -223,7 +222,7 @@
                 },
                 StartGame: function () {
                     var squares;
-
+                    gameServiceInstance._.colorCounts = {};
                     gameServiceInstance._.initGame(gameServiceInstance._.initialSeconds);
                     gameServiceInstance._.retryCount = 0;
                     squares = gameServiceInstance._.getSquares(gameServiceInstance._.colorCounts, gameServiceInstance._.colorProvider);
