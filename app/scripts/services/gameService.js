@@ -135,6 +135,7 @@
                     },
 
                     initGame : function(initialSeconds){
+                        gameServiceInstance._.colorCounts = {};
                         gameServiceInstance.OutcomeText = '';
                         gameServiceInstance.LastGameWon = false;
                         gameServiceInstance.GameStarted = true;
