@@ -365,12 +365,49 @@
         });
 
 
-        it('Should set foo when initGame is called with isRetry = false', function(){
+        it('Should reset the colorCounts when a new game is started', function(){
 
-            var result = gameServiceInstance._.initGame(false);
+            var length, lastColorCounts, squares;
 
+            length =  getObjLength(gameServiceInstance._.colorCounts);
 
-        });
+            expect(length).toBe(0);
+
+            gameServiceInstance.SetGameMode(gameServiceInstance.GameModes.simple);
+            squares = gameServiceInstance.StartGame();
+            lastColorCounts = gameServiceInstance._.colorCounts;
+            length = getObjLength(lastColorCounts);
+            expect(length).toBe(4);
+            expect(getColorCountsTotal(lastColorCounts)).toBe(64);
+            gameServiceInstance.EndGame(squares[0][0]);
+            gameServiceInstance.StartGame();
+            length = getObjLength(gameServiceInstance._.colorCounts);
+            expect(length).toBe(4);
+            expect(gameServiceInstance._.colorCounts).not.toEqual(lastColorCounts);
+            expect(getColorCountsTotal(gameServiceInstance._.colorCounts)).toBe(64);
+
+        })
 
     });
+
+
+    var getObjLength = function(obj) {
+        var length = 0, key;
+        for (key in obj) {
+            if (obj.hasOwnProperty(key)) {
+                length++;
+            }
+        }
+        return length;
+    };
+
+    var getColorCountsTotal = function(colorCounts) {
+        var total = 0, key;
+        for (key in colorCounts) {
+            if (colorCounts.hasOwnProperty(key)) {
+                total+= colorCounts[key];
+            }
+        }
+        return total;
+    };
 }());
