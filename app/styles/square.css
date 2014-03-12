@@ -1,0 +1,188 @@
+#content {
+    margin: 0 auto;
+}
+
+/*
+nav -
+#ff9c07 - hover
+#ff7005
+#cc5904
+#994303
+#4c2101
+
+
+
+#C63D0F 198 61 15
+#3B3738 59 55 56
+#FDF3E7 253 243 231
+#7E8F7C 126 143 124
+
+margin top right bottom left
+
+margin top leftright bottom
+
+margin topbottom leftright
+
+margin topbottomleftright
+
+*/
+
+.center {
+    margin: 0 auto;
+}
+
+.centerText {
+    text-align: center;
+}
+
+.gameBoard {
+    background-color: rgba(56, 55, 56, 1);
+    width: 480px;
+    padding: 10px;
+    height: 560px;
+}
+
+.gameNav {
+    margin: -8px 0 5px -8px;
+    width: 496px;
+    height: 40px;
+}
+
+.scoreBoard {
+    margin: 0 0 45px 1px;
+    width: 496px;
+}
+
+.countDown, .score, .streak, .gameTypeSelector, .square {
+    display: inline;
+    float: left;
+}
+
+.gameTypeSelector, .countDown, .score, .streak, .outCome, .startButton .title {
+    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+}
+
+.title, .beginner, .intermediate, .advanced, .expert {
+    color: #FDF3E7;
+}
+
+.gameTypeSelector {
+    width: 118px;
+    height: 30px;
+    /*background-color: rgba(198, 61, 15, 1);*/
+    margin: 5px 0 5px 5px;
+    cursor: pointer;
+
+}
+
+.unselectable {
+    -moz-user-select: none;
+    -webkit-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}
+
+.beginner {
+    background-color: #ff7005;
+}
+
+.intermediate {
+    background-color: #cc5904;
+}
+
+.advanced {
+    background-color: #994303;
+}
+
+.expert {
+    background-color: #4c2101;
+}
+
+.gameTypeSelector span {
+    position: relative;
+    top: 20%;
+    font-size: 14px;
+}
+
+.gameTypeSelector.active {
+    background-color: rgba(255, 156, 7, .85);
+}
+
+.gameTypeSelector.active span {
+    top: 19%;
+    font-weight: bold;
+}
+
+.gameTypeSelector:hover {
+    background-color: rgba(255, 156, 7, 1);
+}
+
+.square {
+    margin: 5px;
+    cursor: pointer;
+    box-shadow: 2px 2px 1px #000000;
+}
+
+.countDown, .score, .streak {
+    outline: #FDF3E7 inset thick;
+    padding: 3px;
+    font-weight: bold;
+    color: #FDF3E7;
+    width: 153px;
+    height: 21px;
+    text-align: center;
+    font-size: 12px;
+}
+
+.countDown span, .score span, .streak span {
+    font-size: 16px;
+    letter-spacing: 2px;
+}
+
+button {
+    height: 60px;
+    width: 240px;
+    text-align: center;
+    background-color: rgba(126, 143, 124, .75);
+    font-size: 26px;
+    color: #FDF3E7;
+    cursor: pointer;
+}
+
+.startButton {
+    margin: 200px 120px 0 120px;
+    cursor: pointer;
+}
+
+.gameOverBanner {
+    /*margin top right bottom left*/
+    position: relative;
+    top: 0;
+    margin: 0;
+    height: 480px;
+    width: 480px;
+    text-align: center;
+    background-color: rgba(126, 143, 124, .98125);
+    font-size: 26px;
+    color: #FDF3E7;
+}
+
+.playArea {
+    background-color: #FDF3E7;
+    width: 480px;
+    height: 480px;
+}
+
+.outCome {
+    position: relative;
+    top: -370px;
+    display: inline;
+    font-size: 46px;
+    color: #3B3738;
+}
+
+.newGame {
+    position: relative;
+    top: -250px;
+    display: inline;
+}

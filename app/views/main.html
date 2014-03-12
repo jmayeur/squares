@@ -1,0 +1,49 @@
+
+
+<div class="header center centerText title unselectable">
+    <h1>Click the most common color.</h1>
+</div>
+
+
+<div class="gameBoard center unselectable">
+
+    <div class="gameNav">
+        <div class="gameTypeSelector centerText unselectable beginner" ng-class="{active: gameData.GameMode == 'simple'}"
+             data-ng-click="setGameMode('simple')"><span>Beginner</span></div>
+        <div class="gameTypeSelector centerText unselectable intermediate" ng-class="{active: gameData.GameMode == 'medium'}"
+             data-ng-click="setGameMode('medium')"><span>Intermediate</span></div>
+        <div class="gameTypeSelector centerText unselectable advanced" ng-class="{active: gameData.GameMode == 'hard'}"
+             data-ng-click="setGameMode('hard')"><span>Advanced</span></div>
+        <div class="gameTypeSelector centerText unselectable expert" ng-class="{active: gameData.GameMode == 'veryhard'}"
+             data-ng-click="setGameMode('veryhard')"><span>Expert</span></div>
+    </div>
+    <div class="scoreBoard unselectable" >
+        <div class="countDown">
+            Time Left: &nbsp;&nbsp;<span>{{gameData.Seconds}}</span>
+        </div>
+        <div class="score">
+            Score: &nbsp;&nbsp;<span>{{gameData.Score}}</span>
+        </div>
+        <div class="streak">
+            Streak: &nbsp;&nbsp;<span>{{gameData.CurrentStreak}}</span>
+        </div>
+    </div>
+
+
+    <div class="playArea">
+        <div ng-repeat="squareRow in squareRows">
+            <square-element square="square" ng-repeat="square in squareRow"
+                            end-game="gameData.EndGame" game-started="gameData.GameStarted"
+                            outline="getOutline"></square-element>
+        </div>
+        <button class="startButton" data-ng-click="startGame()" ng-show="!firstGameStarted">Start Game</button>
+
+        <div class="gameOverBanner" ng-show="gameData.GameOver">
+            <button class="newGame" ng-show="gameData.LastGameWon" data-ng-click="next()" >Next Game</button>
+            <button class="newGame" ng-show="!gameData.LastGameWon" data-ng-click="retry()">Retry This Game</button>
+            <br />
+            <span class="outCome">{{gameData.OutcomeText}}</span>
+        </div>
+    </div>
+
+</div>
